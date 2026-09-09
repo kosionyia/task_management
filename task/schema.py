@@ -1,8 +1,11 @@
 from pydantic import EmailStr
 from sqlmodel import Field, SQLModel, Relationship
 from task.model import Status
-from user.schema import User
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from user.schema import User
 
 class Task(SQLModel, table=True):
     id:int | None = Field(default=None, primary_key=True)

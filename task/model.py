@@ -1,7 +1,7 @@
 from enum import Enum
 from uuid import uuid4
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class Status(str, Enum):
@@ -17,6 +17,7 @@ class TaskBase(BaseModel):
 class TaskCreate(TaskBase):
     status: Status 
 
-# class TaskUpdate(TaskBase):
-#     status: Status
+class TaskResponse(TaskCreate):
+    id: str
+    user_id: EmailStr
 

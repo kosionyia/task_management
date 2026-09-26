@@ -7,6 +7,12 @@ A simple FastAPI + SQLModel task-management API backed by SQLite.
 - **HTTP framework**: FastAPI
 - **ORM**: SQLModel
 
+# Why this project matters
+
+This project demonstrates REST API design, relational data modeling, 
+route protection with API keys, task lifecycle management, pagination, 
+and background processing with FastAPI.
+
 ## Badges
 [![wakatime](https://wakatime.com/badge/user/b14e5466-6c05-4b34-9f02-6af1d1142376/project/5f8c7e71-fbf1-44a8-88c9-7bf989afb3af.svg)](https://wakatime.com/badge/user/b14e5466-6c05-4b34-9f02-6af1d1142376/project/5f8c7e71-fbf1-44a8-88c9-7bf989afb3af)
 
@@ -44,13 +50,11 @@ On startup, `main.py` calls `create_db_and_tables()`, which auto-creates any mis
 
 ### Tasks — require `X-API-Key` header
 
-All `/task` routes require an `X-API-Key` header:
+All `/task` routes require an `X-API-Key` header. Set the expected key through the `TASK_API_KEY` environment variable.
 
 ```
-X-API-Key: your_api_key
+X-API-Key: replace-with-your-api-key
 ```
-
-(The key is hardcoded in `dependency.py`.)
 
 | Method | Endpoint                    | Description                          |
 | ------ | --------------------------- | ------------------------------------ |
